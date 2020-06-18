@@ -49,11 +49,6 @@ public class NotificadorServiceImpl implements NotificadorService {
 
 	@Override
 	public DataHandler downloadNotificacionPorDni ( String dni) throws IOException {
-		// http://localhost:8080/services/
-		// http://localhost:8080/services/NotificadorService?wsdl
-		//  00000001R
-		/*List<PePersonaEntidad> listapersonaentidad=perosonaentidadrepo.getPePersonaEntidadPorDni(dni);
-		PePersonaEntidad personaentidad2=listapersonaentidad.iterator().next();*/
 		PePersonaEntidad personaentidad=perosonaentidadrepo.getPePersonaEntidadPorDni(dni);
 		List<GfNotificacion> listanotificaciones=perosonaentidadrepo.getGfNotificacion(personaentidad.getId_his_perso(), personaentidad.getId_perso());
 		GfNotificacion notificacion=listanotificaciones.iterator().next();

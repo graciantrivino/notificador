@@ -12,14 +12,7 @@ import java.util.List;
 
 @Repository
 public interface PePersonaEntidadRepositorio extends JpaRepository<PePersonaEntidad, String> {
-    /*
-    Con el DNI/CIF del certificado debes de buscar en pe_persona_entidad:
-   Select id_his_perso, id_perso from pe_persona_entidad where num_docum='XXXXXXXX' and reg_activ=1 and cod_movim<>'B'
-   Con los ids, buscas en pe_notificacion para enviada, recepcionada.
-   select id_notif, cod_archi from gf_notificacion where id_his_perso=XX and id_perso=XX and situacion in (2, 3)
-   Por último buscas en ge_archivo su pdf (recuerda que los pdfs de la notificación sólo se van a descargar cuando te firmen el acuse de recibo:
-   select des_archi from ge_archivo where cod_archiv=XX
-     */
+
 
 
     @Query("Select pe from PePersonaEntidad as pe where pe.num_docum=:dni and reg_activ=1 and cod_movim<>'B'")
