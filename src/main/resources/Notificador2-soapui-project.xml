@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c8cd4ece-b662-45ae-a178-ce0cc55e03eb" activeEnvironment="Default" name="Notificador2" resourceRoot="${projectDir}" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d666f9d0-ed1f-4f5d-ae17-07d9074f495d" wsaVersion="NONE" name="GreetingServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://service.notificador.com/}GreetingServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/GreetingService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/GreetingService?wsdl"><con:part><con:url>http://localhost:8080/services/GreetingService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GreetingServiceImplService" targetNamespace="http://service.notificador.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.notificador.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.notificador.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="NotificadorRespuesta" type="tns:notificadorRespuesta"/>
+      <xs:element name="downloadFileContent" type="tns:downloadFileContent"/>
+      <xs:element name="downloadFileContentResponse" type="tns:downloadFileContentResponse"/>
+      <xs:element name="getNotificacion" type="tns:getNotificacion"/>
+      <xs:element name="getNotificacionResponse" type="tns:getNotificacionResponse"/>
+      <xs:element name="sayBye" type="tns:sayBye"/>
+      <xs:element name="sayByeResponse" type="tns:sayByeResponse"/>
+      <xs:element name="sayHello" type="tns:sayHello"/>
+      <xs:element name="sayHelloResponse" type="tns:sayHelloResponse"/>
+      <xs:complexType name="getNotificacion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dni" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNotificacionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notificacion" type="tns:notificadorRespuesta"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificadorRespuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sayBye">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GreetingsRequest" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sayByeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Greeting" type="tns:notificadorRespuesta"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="downloadFileContent">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="downloadFileContentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sayHello">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GreetingsRequest" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sayHelloResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Greeting" type="tns:notificadorRespuesta"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IOException" type="tns:IOException"/>
+      <xs:complexType name="IOException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getNotificacionResponse">
+    <wsdl:part element="tns:getNotificacionResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificacion">
+    <wsdl:part element="tns:getNotificacion" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadFileContent">
+    <wsdl:part element="tns:downloadFileContent" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayHello">
+    <wsdl:part element="tns:sayHello" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayBye">
+    <wsdl:part element="tns:sayBye" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayByeResponse">
+    <wsdl:part element="tns:sayByeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadFileContentResponse">
+    <wsdl:part element="tns:downloadFileContentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IOException">
+    <wsdl:part element="tns:IOException" name="IOException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayHelloResponse">
+    <wsdl:part element="tns:sayHelloResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GreetingService">
+    <wsdl:operation name="getNotificacion">
+      <wsdl:input message="tns:getNotificacion" name="getNotificacion"></wsdl:input>
+      <wsdl:output message="tns:getNotificacionResponse" name="getNotificacionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sayBye">
+      <wsdl:input message="tns:sayBye" name="sayBye"></wsdl:input>
+      <wsdl:output message="tns:sayByeResponse" name="sayByeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadFileContent">
+      <wsdl:input message="tns:downloadFileContent" name="downloadFileContent"></wsdl:input>
+      <wsdl:output message="tns:downloadFileContentResponse" name="downloadFileContentResponse"></wsdl:output>
+      <wsdl:fault message="tns:IOException" name="IOException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="sayHello">
+      <wsdl:input message="tns:sayHello" name="sayHello"></wsdl:input>
+      <wsdl:output message="tns:sayHelloResponse" name="sayHelloResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GreetingServiceImplServiceSoapBinding" type="tns:GreetingService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getNotificacion">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificacion">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificacionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sayBye">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sayBye">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayByeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadFileContent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="downloadFileContent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="downloadFileContentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IOException">
+        <soap:fault name="IOException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="sayHello">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sayHello">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayHelloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GreetingServiceImplService">
+    <wsdl:port binding="tns:GreetingServiceImplServiceSoapBinding" name="GreetingServiceImplPort">
+      <soap:address location="http://localhost:8080/services/GreetingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/GreetingService</con:endpoint></con:endpoints><con:operation id="a3b5726d-8493-44ae-a927-6ea44683f734" isOneWay="false" action="" name="downloadFileContent" bindingOperationName="downloadFileContent" type="Request-Response" outputName="downloadFileContentResponse" inputName="downloadFileContent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66caf9c9-1963-4d86-be08-d2be3867d7fa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/GreetingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.notificador.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:downloadFileContent/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.notificador.com/GreetingService/downloadFileContent"/></con:call></con:operation><con:operation id="2c7c175a-71f9-422b-95ca-c0ea2dbe2703" isOneWay="false" action="" name="getNotificacion" bindingOperationName="getNotificacion" type="Request-Response" outputName="getNotificacionResponse" inputName="getNotificacion" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="12bb9e63-d87f-4ccb-ac98-1bff38771c99" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/GreetingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.notificador.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getNotificacion>\r
+         <!--Optional:-->\r
+         <dni>?</dni>\r
+      </ser:getNotificacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.notificador.com/GreetingService/getNotificacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f298ad76-aeec-48a8-b04c-dda4d9c98ab6" isOneWay="false" action="" name="sayBye" bindingOperationName="sayBye" type="Request-Response" outputName="sayByeResponse" inputName="sayBye" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5971a9f4-6726-4538-a487-0a3ada14ba71" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/GreetingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.notificador.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:sayBye>\r
+         <!--Optional:-->\r
+         <GreetingsRequest>?</GreetingsRequest>\r
+      </ser:sayBye>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.notificador.com/GreetingService/sayBye"/></con:call></con:operation><con:operation id="84114304-618f-4a1b-979a-82962fd70281" isOneWay="false" action="" name="sayHello" bindingOperationName="sayHello" type="Request-Response" outputName="sayHelloResponse" inputName="sayHello" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e68bcdfe-aab9-4b50-b6c9-b6299d0754b1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/GreetingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.notificador.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:sayHello>\r
+         <!--Optional:-->\r
+         <GreetingsRequest>?</GreetingsRequest>\r
+      </ser:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.notificador.com/GreetingService/sayHello"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
